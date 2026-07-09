@@ -92,7 +92,7 @@ class Loaded:
 
     def tokenize(self, prompt: str):
         ids = self.tokenizer(prompt, return_tensors='pt', add_special_tokens=False)['input_ids'][0].tolist()
-        return [TokenInfo(index=i, token_id=int(t), text=self.tokenizer.decode([int(t)])) for i, t in enumerate(ids)]
+        return [TokenInfo(index=i, token_id=int(t), text=self.tokenizer.convert_ids_to_tokens(int(t))) for i, t in enumerate(ids)]
 
     def analyze(self, req: AnalyzeRequest) -> AnalyzeResponse:
         t0 = time.time()
