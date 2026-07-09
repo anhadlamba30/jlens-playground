@@ -1,6 +1,7 @@
 # Local JLens Playground
 
 A local [Jacobian Lens](https://github.com/anthropics/jacobian-lens) explorer
+
 ![Prompt Analysis screenshot](screenshots/prompt_analysis.png)
 
 ## Quickstart
