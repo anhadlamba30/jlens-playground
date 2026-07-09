@@ -1,0 +1,12 @@
+[
+  {
+    "id": "your-model-id",
+    "label": "Your Model Label",
+    "model_id": "org/model-name",
+    "lens_path": "lenses/your-model-folder/lens.pt",
+    "device": "auto",
+    "dtype": "float16",
+    "enabled": true,
+    "notes": "Local config — edit this file"
+  }
+]

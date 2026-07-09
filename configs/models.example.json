@@ -1,0 +1,22 @@
+[
+  {
+    "id": "demo-synthetic",
+    "label": "Demo Synthetic Readout - no model required",
+    "model_id": "demo",
+    "lens_path": "demo",
+    "device": "auto",
+    "dtype": "auto",
+    "enabled": true,
+    "notes": "Use this first. It proves the frontend/backend are working without a real model."
+  },
+  {
+    "id": "qwen3.5-0.8b",
+    "label": "Qwen3.5-0.8b + Neuronpedia JLens",
+    "model_id": "qwen/qwen3.5-0.8b",
+    "lens_path": "lenses/qwen3.5-0.8b/jlens/Salesforce-wikitext/Qwen3.5-0.8B_jacobian_lens.pt",
+    "device": "auto",
+    "dtype": "float16",
+    "enabled": true,
+    "notes": ""
+  }
+]
