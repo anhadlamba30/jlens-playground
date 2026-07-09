@@ -959,6 +959,34 @@ textarea { min-height: 60px; resize: vertical; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
 
+/* ── Chat Analysis Drag Handle ─────────────────────────────── */
+.chat-analysis-drag {
+  height: 10px;
+  cursor: ns-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 -20px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--bg-base);
+  user-select: none;
+}
+
+.chat-analysis-drag-track {
+  width: 40px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--border-light);
+  transition: background 0.15s var(--ease);
+}
+
+.chat-analysis-drag:hover .chat-analysis-drag-track,
+.chat-analysis-drag.active .chat-analysis-drag-track {
+  background: var(--accent);
+}
+
 /* ── Hidden ────────────────────────────────────────────────── */
 .hidden { display: none !important; }
 

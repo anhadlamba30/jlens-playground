@@ -18,6 +18,7 @@ export function renderChatTab() {
   renderChatTranscript()
   renderChatSidebar()
   setupAnalysisToggle()
+  setupAnalysisDrag()
 }
 
 function setupAnalysisToggle() {
@@ -31,11 +32,48 @@ function setupAnalysisToggle() {
   }
 }
 
+function setupAnalysisDrag() {
+  const drag = $('chatAnalysisDrag')
+  const area = $('chatAnalysisArea')
+  if (!drag || !area) return
+
+  let startY = 0
+  let startH = 0
+
+  const onMove = (e) => {
+    const dy = (e.clientY || e.touches?.[0]?.clientY || 0) - startY
+    const newH = Math.max(80, startH - dy)
+    area.style.height = newH + 'px'
+  }
+
+  const onEnd = () => {
+    drag.classList.remove('active')
+    document.removeEventListener('mousemove', onMove)
+    document.removeEventListener('mouseup', onEnd)
+    document.removeEventListener('touchmove', onMove)
+    document.removeEventListener('touchend', onEnd)
+  }
+
+  const onStart = (e) => {
+    drag.classList.add('active')
+    startY = e.clientY || e.touches?.[0]?.clientY || 0
+    startH = area.offsetHeight
+    document.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseup', onEnd)
+    document.addEventListener('touchmove', onMove, { passive: true })
+    document.addEventListener('touchend', onEnd)
+  }
+
+  drag.addEventListener('mousedown', onStart)
+  drag.addEventListener('touchstart', onStart, { passive: true })
+}
+
 export function renderChatAnalysis() {
   const area = $('chatAnalysisArea')
   if (!area) return
   if (!state.result) { area.classList.add('hidden'); return }
   area.classList.remove('hidden')
+  if (!area.style.height) area.style.height = '300px'
   const content = $('chatAnalysisContent')
   if (!content) return
   content.innerHTML = ''

@@ -56,8 +56,11 @@ export function renderShell() {
           <div style="display:flex;flex-direction:column;overflow:hidden;flex:1">
             <div class="chat-header" id="chatHeader"></div>
             <div class="chat-messages" id="chatMessages"></div>
-            <div id="chatAnalysisArea" class="hidden" style="flex-shrink:0;max-height:40vh;overflow-y:auto;padding:0 20px 12px;border-top:1px solid var(--border)">
-              <div style="display:flex;align-items:center;gap:8px;padding:10px 0 8px;position:sticky;top:0;background:var(--bg-base);z-index:1">
+            <div id="chatAnalysisArea" class="hidden" style="flex-shrink:0;overflow-y:auto;padding:0 20px 12px;border-top:1px solid var(--border);min-height:80px">
+              <div class="chat-analysis-drag" id="chatAnalysisDrag">
+                <div class="chat-analysis-drag-track"></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 0 8px;position:sticky;top:0;background:var(--bg-base);z-index:1">
                 <button id="chatAnalysisToggle" class="btn btn-sm" style="font-size:11px">▼ J-Lens Analysis</button>
               </div>
               <div id="chatAnalysisContent" style="display:flex;flex-direction:column;gap:12px"></div>
