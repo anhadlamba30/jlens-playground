@@ -13,6 +13,7 @@ export function bind() {
   if (!pane) return
   pane.innerHTML = controlsHTML()
   bindControls()
+  renderModelSelect()
 }
 
 function controlsHTML() {
