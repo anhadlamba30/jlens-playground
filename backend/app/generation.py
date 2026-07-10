@@ -49,7 +49,7 @@ def generate_text(
         generated_tokens.append({
             "index": i,
             "token_id": tid,
-            "text": tokenizer.convert_ids_to_tokens(tid),
+            "text": tokenizer.convert_ids_to_tokens(tid).replace('Ġ', '·'),
         })
 
     return generated_text, generated_tokens
